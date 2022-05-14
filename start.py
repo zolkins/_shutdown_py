@@ -11,7 +11,7 @@ class Shutdown:
  
     def __init__(self, root):
         # main-frame
-        root.title("Shutdown v103")
+        root.title("Shutdown v104")
         root.geometry("300x80+600+300")
         root.resizable(FALSE, FALSE)
 
@@ -55,12 +55,9 @@ class Shutdown:
         c.configure(bg=colorb, fg=colorf)
         d.grid(column=9, row=0)
         d.configure(bg=colorb, fg=colorf)
-
- 
         # enter
         root.bind("<Return>", self.down2)
 
- 
     def own(self):
         (rgb, hx) = colorchooser.askcolor()
 
