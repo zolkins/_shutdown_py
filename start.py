@@ -7,6 +7,7 @@ import tkinter as tk
 import tkinter.ttk as ttk 
 from tkinter import colorchooser
 
+
 def path0(relative_path):
     base_path = getattr(
         sys,
@@ -14,9 +15,9 @@ def path0(relative_path):
         os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
+
 class Shutdown:
- 
- 
+
     def __init__(self, root):
         # main-frame
         root.title("Shutdown v105")
@@ -26,6 +27,7 @@ class Shutdown:
         self.i = j = 0
         c = [0, 1]
         self.chColor()
+
     def chColor(self):
         ossr = open(self.setting).readline()
         print(ossr)
