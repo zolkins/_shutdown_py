@@ -75,8 +75,10 @@ class Shutdown:
 
     def own(self):
         moot = Tk()
-        ttk.Button(text='Background')
-        ttk.Button(text='Font')
+        ttk.Button(moot, text='Background', command=picker).grid(column=0, row=0)
+        ttk.Button(moot, text='Font', command=picker).grid(column=1, row=0)
+    
+    def picker():
         (rgb, hx) = colorchooser.askcolor()
 
 
