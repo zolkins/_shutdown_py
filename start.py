@@ -30,7 +30,6 @@ class Shutdown:
 
     def chColor(self):
         ossr = open(self.setting).readline()
-        print(ossr)
         if ossr == 'blue':
             self.colorb = '#0F9EAD'
             self.colorf = 'black'
