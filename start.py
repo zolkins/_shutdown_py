@@ -21,7 +21,7 @@ class Shutdown:
         colorb = '#0F9EAD'
         colorf = 'black'
         self.i = 0
-        of = open('setting.txt', 'w')
+        open('setting.txt', 'r')
 
         # x/y
         self.min = StringVar()
@@ -75,8 +75,10 @@ class Shutdown:
 
     def own(self):
         moot = Tk()
-        ttk.Button(text='Background')
-        ttk.Button(text='Font')
+        ttk.Button(moot, text='Background', command=self.picker).grid(column=0, row=0)
+        ttk.Button(moot, text='Font', command=self.picker).grid(column=1, row=0)
+    
+    def picker(self):
         (rgb, hx) = colorchooser.askcolor()
 
 
