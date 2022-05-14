@@ -23,18 +23,19 @@ class Shutdown:
         root.geometry("300x80+600+300")
         root.resizable(FALSE, FALSE)
         self.setting = path0("setting.txt")
-        self.colorb = '#0F9EAD'
-        self.colorf = 'black'
         self.i = j = 0
         c = [0, 1]
+        self.chColor()
+    def chColor(self):
         ossr = open(self.setting).readline()
-        if ossr == 'Blue':
+        print(ossr)
+        if ossr == 'blue':
             self.colorb = '#0F9EAD'
             self.colorf = 'black'
-        elif ossr == 'White':
+        elif ossr == 'white':
             self.colorb = 'white'
             self.colorf = 'black'
-        elif ossr == 'Black':
+        elif ossr == 'black':
             self.colorb = 'black'
             self.colorf = 'white'
         elif ossr == '':
@@ -86,22 +87,26 @@ class Shutdown:
         open(self.setting, 'w').write('blue')
         self.colorb = '#0F9EAD'
         self.colorf = 'black'
+        self.chColor()
 
     def white(self):
         open(self.setting, 'w').write('white')
         self.colorb = 'white'
         self.colorf = 'black'
+        self.chColor()
 
     def black(self):
         open(self.setting, 'w').write('black')
         self.colorb = 'black'
         self.colorf = 'white'
+        self.chColor()
 
     def own(self):
         moot = Tk()
         moot.geometry("+400+300")
         ttk.Button(moot, text='Background', command=self.picker).grid(column=0, row=0)
         ttk.Button(moot, text='Font', command=self.picker).grid(column=1, row=0)
+        self.chColor()
     
     def picker(self):
         (rgb, hx) = colorchooser.askcolor()
