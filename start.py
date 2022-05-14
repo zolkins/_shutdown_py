@@ -1,9 +1,12 @@
+import os
+import sys
 import subprocess
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
 import tkinter.ttk as ttk 
 from tkinter import colorchooser
+
  
 
 class Shutdown:
@@ -18,6 +21,7 @@ class Shutdown:
         colorb = '#0F9EAD'
         colorf = 'black'
         self.i = 0
+        of = open('setting.txt', 'w')
 
         # x/y
         self.min = StringVar()
@@ -58,13 +62,21 @@ class Shutdown:
         # enter
         root.bind("<Return>", self.down2)
 
+    #DEF-------
+
     def blue(self):
+        open('setting.txt', 'w').write('blue')
 
     def white(self):
+        open('setting.txt', 'w').write('white')
 
     def black(self):
+        open('setting.txt', 'w').write('black')
 
     def own(self):
+        moot = Tk()
+        ttk.Button(text='Background')
+        ttk.Button(text='Font')
         (rgb, hx) = colorchooser.askcolor()
 
 
@@ -102,7 +114,7 @@ class Shutdown:
             root.geometry("300x80")
             self.i = 0
         
-
+open('setting.txt', 'w').close
 root = Tk()
 Shutdown(root)
 root.mainloop()
