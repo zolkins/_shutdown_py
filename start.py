@@ -22,33 +22,45 @@ class Shutdown:
         root.title("Shutdown v105")
         root.geometry("300x80+600+300")
         root.resizable(FALSE, FALSE)
-
         self.setting = path0("setting.txt")
-        colorb = '#0F9EAD'
-        colorf = 'black'
-        self.i = 0
-        
+        self.colorb = '#0F9EAD'
+        self.colorf = 'black'
+        self.i = j = 0
+        c = [0, 1]
+        ossr = open(self.setting).readline()
+        if ossr == 'Blue':
+            self.colorb = '#0F9EAD'
+            self.colorf = 'black'
+        elif ossr == 'White':
+            self.colorb = 'white'
+            self.colorf = 'black'
+        elif ossr == 'Black':
+            self.colorb = 'black'
+            self.colorf = 'white'
+        elif ossr == '':
+            self.colorb = '#0F9EAD'
+            self.colorf = 'black'
 
         # x/y
         self.min = StringVar()
         self.sec = StringVar()
  
-        root.configure(bg=colorb)
+        root.configure(bg=self.colorb)
 
         # input-line
         entry = ttk.Entry(width=5, textvariable=self.min)
         entry.grid(column=1, row=0)
  
         # line
-        ttk.Label(text="  Через сколько минут выключить?", background=colorb, foreground='black').grid(column=0, row=0)
-        ttk.Label(text="", background=colorb).grid(column=0, row=1)
+        ttk.Label(text="  Через сколько минут выключить?", background=self.colorb, foreground=self.colorf).grid(column=0, row=0)
+        ttk.Label(text="", background=self.colorb).grid(column=0, row=1)
  
         # button
         ttk.Button(text="Запланировать!", command=self.down).grid(column=0, row=2)
         ttk.Button(text="Отмена!", command=self.cancel).grid(column=1, row=2)
         login_button = tk.Button(text="⚙", command=self.plus)
         login_button.grid(column=2, row=0,  sticky=tk.W)
-        login_button.configure(bg=colorb, fg=colorf)
+        login_button.configure(bg=self.colorb, fg=self.colorf)
 
         # radiobutton
         color = StringVar()
@@ -58,13 +70,13 @@ class Shutdown:
         d = tk.Radiobutton(text='Own', variable=color, value='own', command=self.own)
         
         a.grid(column=6, row=0)
-        a.configure(bg=colorb, fg=colorf)
+        a.configure(bg=self.colorb, fg=self.colorf)
         b.grid(column=7, row=0)
-        b.configure(bg=colorb, fg=colorf)
+        b.configure(bg=self.colorb, fg=self.colorf)
         c.grid(column=8, row=0)
-        c.configure(bg=colorb, fg=colorf)
+        c.configure(bg=self.colorb, fg=self.colorf)
         d.grid(column=9, row=0)
-        d.configure(bg=colorb, fg=colorf)
+        d.configure(bg=self.colorb, fg=self.colorf)
         # enter
         root.bind("<Return>", self.down2)
 
@@ -72,16 +84,22 @@ class Shutdown:
 
     def blue(self):
         open(self.setting, 'w').write('blue')
+        self.colorb = '#0F9EAD'
+        self.colorf = 'black'
 
     def white(self):
         open(self.setting, 'w').write('white')
+        self.colorb = 'white'
+        self.colorf = 'black'
 
     def black(self):
         open(self.setting, 'w').write('black')
+        self.colorb = 'black'
+        self.colorf = 'white'
 
     def own(self):
         moot = Tk()
-        moot.geometry("+600+300")
+        moot.geometry("+400+300")
         ttk.Button(moot, text='Background', command=self.picker).grid(column=0, row=0)
         ttk.Button(moot, text='Font', command=self.picker).grid(column=1, row=0)
     
