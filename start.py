@@ -11,7 +11,7 @@ class Shutdown:
  
     def __init__(self, root):
         # main-frame
-        root.title("Shutdown v3")
+        root.title("Shutdown v103")
         root.geometry("300x80+600+300")
         root.resizable(FALSE, FALSE)
 
