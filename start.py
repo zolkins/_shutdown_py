@@ -81,7 +81,7 @@ class Shutdown:
 
     def own(self):
         moot = Tk()
-        moot.geometry("300x80+600+400")
+        moot.geometry("+600+300")
         ttk.Button(moot, text='Background', command=self.picker).grid(column=0, row=0)
         ttk.Button(moot, text='Font', command=self.picker).grid(column=1, row=0)
     
