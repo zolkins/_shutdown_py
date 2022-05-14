@@ -23,10 +23,10 @@ class Shutdown:
         root.geometry("300x80+600+300")
         root.resizable(FALSE, FALSE)
 
+        setting = path0("setting.txt")
         colorb = '#0F9EAD'
         colorf = 'black'
         self.i = 0
-        of = open('setting.txt', 'w')
 
         # x/y
         self.min = StringVar()
@@ -70,13 +70,13 @@ class Shutdown:
     #DEF-------
 
     def blue(self):
-        open('setting.txt', 'w').write('blue')
+        open(setting, 'w').write('blue')
 
     def white(self):
-        open('setting.txt', 'w').write('white')
+        open(setting, 'w').write('white')
 
     def black(self):
-        open('setting.txt', 'w').write('black')
+        open('setting', 'w').write('black')
 
     def own(self):
         moot = Tk()
@@ -121,7 +121,7 @@ class Shutdown:
             root.geometry("300x80")
             self.i = 0
         
-open('setting.txt', 'w').close
+open(setting, 'w').close
 root = Tk()
 Shutdown(root)
 root.mainloop()
