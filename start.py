@@ -68,7 +68,7 @@ class Shutdown:
         # enter
         root.bind("<Return>", self.down2)
 
-    #DEF-------
+    # DEF-------
 
     def blue(self):
         open(self.setting, 'w').write('blue')
@@ -122,7 +122,7 @@ class Shutdown:
             root.geometry("300x80")
             self.i = 0
     
-        
+
 root = Tk()
 Shutdown(root)
 root.mainloop()
