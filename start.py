@@ -27,7 +27,7 @@ class Shutdown:
         colorb = '#0F9EAD'
         colorf = 'black'
         self.i = 0
-        print()
+        
 
         # x/y
         self.min = StringVar()
@@ -68,7 +68,7 @@ class Shutdown:
         # enter
         root.bind("<Return>", self.down2)
 
-    #DEF-------
+    # DEF-------
 
     def blue(self):
         open(self.setting, 'w').write('blue')
@@ -81,6 +81,7 @@ class Shutdown:
 
     def own(self):
         moot = Tk()
+        moot.geometry("300x80+600+400")
         ttk.Button(moot, text='Background', command=self.picker).grid(column=0, row=0)
         ttk.Button(moot, text='Font', command=self.picker).grid(column=1, row=0)
     
@@ -122,7 +123,7 @@ class Shutdown:
             root.geometry("300x80")
             self.i = 0
     
-        
+
 root = Tk()
 Shutdown(root)
 root.mainloop()
