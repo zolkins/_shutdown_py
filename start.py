@@ -11,7 +11,7 @@ class Shutdown:
  
     def __init__(self, root):
         # main-frame
-        root.title("Shutdown v104")
+        root.title("Shutdown v105")
         root.geometry("300x80+600+300")
         root.resizable(FALSE, FALSE)
 
@@ -24,7 +24,7 @@ class Shutdown:
         self.sec = StringVar()
  
         root.configure(bg=colorb)
- 
+
         # input-line
         entry = ttk.Entry(width=5, textvariable=self.min)
         entry.grid(column=1, row=0)
@@ -57,6 +57,12 @@ class Shutdown:
         d.configure(bg=colorb, fg=colorf)
         # enter
         root.bind("<Return>", self.down2)
+
+    def blue(self):
+
+    def white(self):
+
+    def black(self):
 
     def own(self):
         (rgb, hx) = colorchooser.askcolor()
