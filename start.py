@@ -147,9 +147,9 @@ class Shutdown:
         else:
             root.geometry("300x80")
             self.i = 0
-    
+
+root = Tk()
 ico = path0("ico.png")
 root.iconphoto(True, tk.PhotoImage(file=ico))
-root = Tk()
 Shutdown(root)
 root.mainloop()
