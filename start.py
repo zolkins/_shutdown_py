@@ -7,7 +7,12 @@ import tkinter as tk
 import tkinter.ttk as ttk 
 from tkinter import colorchooser
 
- 
+def path0(relative_path):
+    base_path = getattr(
+        sys,
+        '_MEIPASS',
+        os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
 class Shutdown:
  
@@ -18,10 +23,11 @@ class Shutdown:
         root.geometry("300x80+600+300")
         root.resizable(FALSE, FALSE)
 
+        self.setting = path0("setting.txt")
         colorb = '#0F9EAD'
         colorf = 'black'
         self.i = 0
-        open('setting.txt', 'r')
+        print()
 
         # x/y
         self.min = StringVar()
@@ -65,13 +71,13 @@ class Shutdown:
     #DEF-------
 
     def blue(self):
-        open('setting.txt', 'w').write('blue')
+        open(self.setting, 'w').write('blue')
 
     def white(self):
-        open('setting.txt', 'w').write('white')
+        open(self.setting, 'w').write('white')
 
     def black(self):
-        open('setting.txt', 'w').write('black')
+        open(self.setting, 'w').write('black')
 
     def own(self):
         moot = Tk()
@@ -80,7 +86,7 @@ class Shutdown:
     
     def picker(self):
         (rgb, hx) = colorchooser.askcolor()
-
+        
 
     def cancel(self):
         subprocess.call('shutdown -a', shell=True)
@@ -115,8 +121,8 @@ class Shutdown:
         else:
             root.geometry("300x80")
             self.i = 0
+    
         
-open('setting.txt', 'w').close
 root = Tk()
 Shutdown(root)
 root.mainloop()
