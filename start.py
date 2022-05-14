@@ -27,7 +27,6 @@ class Shutdown:
         colorb = '#0F9EAD'
         colorf = 'black'
         self.i = 0
-        open('setting.txt', 'r')
 
         # x/y
         self.min = StringVar()
@@ -68,7 +67,7 @@ class Shutdown:
         # enter
         root.bind("<Return>", self.down2)
 
-    #DEF-------
+    # DEF-------
 
     def blue(self):
         open(self.setting, 'w').write('blue')
@@ -86,7 +85,7 @@ class Shutdown:
     
     def picker(self):
         (rgb, hx) = colorchooser.askcolor()
-        
+
 
     def cancel(self):
         subprocess.call('shutdown -a', shell=True)
@@ -121,8 +120,8 @@ class Shutdown:
         else:
             root.geometry("300x80")
             self.i = 0
-    
-        
+
+
 root = Tk()
 Shutdown(root)
 root.mainloop()
