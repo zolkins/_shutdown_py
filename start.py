@@ -24,8 +24,7 @@ class Shutdown:
         root.geometry("300x80+600+300")
         root.resizable(FALSE, FALSE)
         self.setting = path0("setting.txt")
-        self.i = j = 0
-        c = [0, 1]
+        self.i = 0
         self.chColor()
 
     def chColor(self):
@@ -46,7 +45,7 @@ class Shutdown:
         # x/y
         self.min = StringVar()
         self.sec = StringVar()
- 
+
         root.configure(bg=self.colorb)
 
         # input-line
@@ -123,8 +122,8 @@ class Shutdown:
             if min == 0:
                 min = 'abc'
             sec = int(min * 60)
-            subprocess.call('shutdown -s -t ' + str(sec), shell=True)
-            messagebox.showinfo(message='Ваш пк будет выключен через ' + str(min) + ' min')
+            subprocess.call(f'shutdown -s -t {sec}', shell=True)
+            messagebox.showinfo(message=f'Ваш пк будет выключен через {min} min')
         except ValueError:
             pass
  
@@ -134,8 +133,8 @@ class Shutdown:
             if min == 0:
                 min = 'abc' 
             sec = int(min * 60)
-            subprocess.call('shutdown -s -t ' + str(sec), shell=True)
-            messagebox.showinfo(message='Ваш пк будет выключен через ' + str(min) + ' min')
+            subprocess.call(f'shutdown -s -t {sec}', shell=True)
+            messagebox.showinfo(message=f'Ваш пк будет выключен через {min} min')
         except ValueError:
             pass
     
