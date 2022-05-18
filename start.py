@@ -53,7 +53,7 @@ class Shutdown:
         entry.grid(column=1, row=0)
  
         # line
-        ttk.Label(text="  Через сколько минут выключить?", background=self.colorb, foreground=self.colorf).grid(column=0, row=0)
+        ttk.Label(text="Через сколько минут выключить?", background=self.colorb, padding=5,foreground=self.colorf).grid(column=0, row=0)
         ttk.Label(text="", background=self.colorb).grid(column=0, row=1)
  
         # button
