@@ -43,6 +43,9 @@ class Shutdown:
         elif ossr == '':
             self.colorb = '#0F9EAD'
             self.colorf = 'black'
+        else:
+            self.colorb = ossr
+            self.colorf = 'black'
 
         # x/y
         self.min = StringVar()
@@ -106,12 +109,20 @@ class Shutdown:
     def own(self):
         moot = Tk()
         moot.geometry("+400+300")
-        ttk.Button(moot, text='Background', command=self.picker).grid(column=0, row=0)
+        ttk.Button(moot, text='Background', command=self.bgPicker).grid(column=0, row=0)
         ttk.Button(moot, text='Font', command=self.picker).grid(column=1, row=0)
         self.chcolor()
+
+    def bgPicker(self):
+        #a = open(self.setting).readline() 
+        #if (a == 'white' or a =='black' or a == 'blue' or a == ''): 
+        open(self.setting, 'w').write(self.picker())
+        self.chcolor()
+
     
     def picker(self):
         (rgb, hx) = colorchooser.askcolor()
+        return hx
 
     def cancel(self):
         subprocess.call('shutdown -a', shell=True)
