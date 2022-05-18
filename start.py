@@ -20,14 +20,16 @@ class Shutdown:
 
     def __init__(self, root):
         # main-frame
+        ico = path0("ico.png")
+        root.iconphoto(True, tk.PhotoImage(file=ico))
         root.title("Shutdown v105")
         root.geometry("300x80+600+300")
         root.resizable(FALSE, FALSE)
         self.setting = path0("setting.txt")
         self.i = 0
-        self.chColor()
+        self.chcolor()
 
-    def chColor(self):
+    def chcolor(self):
         ossr = open(self.setting).readline()
         if ossr == 'blue':
             self.colorb = '#0F9EAD'
@@ -87,26 +89,26 @@ class Shutdown:
         open(self.setting, 'w').write('blue')
         self.colorb = '#0F9EAD'
         self.colorf = 'black'
-        self.chColor()
+        self.chcolor()
 
     def white(self):
         open(self.setting, 'w').write('white')
         self.colorb = 'white'
         self.colorf = 'black'
-        self.chColor()
+        self.chcolor()
 
     def black(self):
         open(self.setting, 'w').write('black')
         self.colorb = 'black'
         self.colorf = 'white'
-        self.chColor()
+        self.chcolor()
 
     def own(self):
         moot = Tk()
         moot.geometry("+400+300")
         ttk.Button(moot, text='Background', command=self.picker).grid(column=0, row=0)
         ttk.Button(moot, text='Font', command=self.picker).grid(column=1, row=0)
-        self.chColor()
+        self.chcolor()
     
     def picker(self):
         (rgb, hx) = colorchooser.askcolor()
@@ -122,7 +124,7 @@ class Shutdown:
                 min = 'abc'
             sec = int(min * 60)
             subprocess.call(f'shutdown -s -t {sec}', shell=True)
-            messagebox.showinfo(message=f'Ваш пк будет выключен через {min=}')
+            messagebox.showinfo(message=f'Ваш пк будет выключен через {min} mins')
         except ValueError:
             pass
     
@@ -136,7 +138,5 @@ class Shutdown:
 
 
 root = Tk()
-ico = path0("ico.png")
-root.iconphoto(True, tk.PhotoImage(file=ico))
 Shutdown(root)
 root.mainloop()
