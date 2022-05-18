@@ -51,17 +51,20 @@ class Shutdown:
         # input-line
         entry = ttk.Entry(width=5, textvariable=self.min)
         entry.grid(column=1, row=0)
+        # enter
+        entry.bind("<Return>", self.down)
  
         # line
-        ttk.Label(text="Через сколько минут выключить?", background=self.colorb, padding=5,foreground=self.colorf).grid(column=0, row=0)
+        l = ttk.Label(text="Через сколько минут выключить?", background=self.colorb, padding=5, foreground=self.colorf)
+        l.grid(column=0, row=0)
         ttk.Label(text="", background=self.colorb).grid(column=0, row=1)
  
         # button
         ttk.Button(text="Запланировать!", command=self.down).grid(column=0, row=2)
         ttk.Button(text="Отмена!", command=self.cancel).grid(column=1, row=2)
-        login_button = tk.Button(text="⚙", command=self.plus)
-        login_button.grid(column=2, row=0,  sticky=tk.W)
-        login_button.configure(bg=self.colorb, fg=self.colorf)
+        settings_button = tk.Button(text="⚙", command=self.plus)
+        settings_button.grid(column=2, row=0,  sticky=tk.W)
+        settings_button.configure(bg=self.colorb, fg=self.colorf)
 
         # radiobutton
         color = StringVar()
@@ -78,11 +81,8 @@ class Shutdown:
         c.configure(bg=self.colorb, fg=self.colorf)
         d.grid(column=9, row=0)
         d.configure(bg=self.colorb, fg=self.colorf)
-        # enter
-        root.bind("<Return>", self.down2)
 
-    # DEF-------
-
+    # definitions
     def blue(self):
         open(self.setting, 'w').write('blue')
         self.colorb = '#0F9EAD'
@@ -110,31 +110,19 @@ class Shutdown:
     
     def picker(self):
         (rgb, hx) = colorchooser.askcolor()
-        
 
     def cancel(self):
         subprocess.call('shutdown -a', shell=True)
         messagebox.showinfo(message='Отмена успешна')
- 
-    def down2(self, event):
+
+    def down(self, a=None):
         try:
             min = int(self.min.get())
             if min == 0:
                 min = 'abc'
             sec = int(min * 60)
             subprocess.call(f'shutdown -s -t {sec}', shell=True)
-            messagebox.showinfo(message=f'Ваш пк будет выключен через {min} min')
-        except ValueError:
-            pass
- 
-    def down(self):
-        try:
-            min = int(self.min.get())
-            if min == 0:
-                min = 'abc' 
-            sec = int(min * 60)
-            subprocess.call(f'shutdown -s -t {sec}', shell=True)
-            messagebox.showinfo(message=f'Ваш пк будет выключен через {min} min')
+            messagebox.showinfo(message=f'Ваш пк будет выключен через {min=}')
         except ValueError:
             pass
     
@@ -145,6 +133,7 @@ class Shutdown:
         else:
             root.geometry("300x80")
             self.i = 0
+
 
 root = Tk()
 ico = path0("ico.png")
