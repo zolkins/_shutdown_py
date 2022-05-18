@@ -124,7 +124,7 @@ class Shutdown:
                 min = 'abc'
             sec = int(min * 60)
             subprocess.call(f'shutdown -s -t {sec}', shell=True)
-            messagebox.showinfo(message=f'Ваш пк будет выключен через {min} mins')
+            messagebox.showinfo(message=f'Ваш пк будет выключен через {min} min')
         except ValueError:
             pass
     
