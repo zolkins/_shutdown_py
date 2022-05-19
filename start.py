@@ -114,8 +114,6 @@ class Shutdown:
         self.chcolor()
 
     def bgPicker(self):
-        #a = open(self.setting).readline() 
-        #if (a == 'white' or a =='black' or a == 'blue' or a == ''): 
         open(self.setting, 'w').write(self.picker())
         self.chcolor()
 
@@ -146,7 +144,7 @@ class Shutdown:
             root.geometry("300x80")
             self.i = 0
 
-
+open(path0("setting.txt")).close
 root = Tk()
 Shutdown(root)
 root.mainloop()
