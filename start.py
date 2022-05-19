@@ -58,12 +58,12 @@ class Shutdown:
         entry.grid(column=1, row=0)
         # enter
         entry.bind("<Return>", self.down)
- 
+
         # line
         l = ttk.Label(text="Через сколько минут выключить?", background=self.colorb, padding=5, foreground=self.colorf)
         l.grid(column=0, row=0)
         ttk.Label(text="", background=self.colorb).grid(column=0, row=1)
- 
+
         # button
         ttk.Button(text="Запланировать!", command=self.down).grid(column=0, row=2)
         ttk.Button(text="Отмена!", command=self.cancel).grid(column=1, row=2)
@@ -131,11 +131,10 @@ class Shutdown:
     def down(self, a=None):
         try:
             min = int(self.min.get())
-            if min == 0:
-                min = 'abc'
-            sec = int(min * 60)
-            subprocess.call(f'shutdown -s -t {sec}', shell=True)
-            messagebox.showinfo(message=f'Ваш пк будет выключен через {min} min')
+            if min > 0:
+                sec = int(min * 60)
+                subprocess.call(f'shutdown -s -t {sec}', shell=True)
+                messagebox.showinfo(message=f'Ваш пк будет выключен через {min} min')
         except ValueError:
             pass
     
