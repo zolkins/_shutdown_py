@@ -1,12 +1,12 @@
 # Byte-compiled / optimized / DLL files
-setting.txt
+*.txt
 __pycache__/
 *.py[cod]
 *$py.class
 
 # C extensions
 *.so
-
+2.py
 # Distribution / packaging
 .Python
 build/
@@ -128,3 +128,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/2.py
