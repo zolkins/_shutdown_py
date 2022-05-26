@@ -4,7 +4,7 @@ import subprocess
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
-import tkinter.ttk as ttk 
+import tkinter.ttk as ttk
 from tkinter import colorchooser
 
 
@@ -68,7 +68,7 @@ class Shutdown:
         ttk.Button(text="Запланировать!", command=self.down).grid(column=0, row=2)
         ttk.Button(text="Отмена!", command=self.cancel).grid(column=1, row=2)
         settings_button = tk.Button(text="⚙", command=self.plus)
-        settings_button.grid(column=2, row=0,  sticky=tk.W)
+        settings_button.grid(column=2, row=0, sticky=tk.W)
         settings_button.configure(bg=self.colorb, fg=self.colorf)
 
         # radiobutton
@@ -77,7 +77,7 @@ class Shutdown:
         b = tk.Radiobutton(text='White', variable=color, value='b', command=self.white)
         c = tk.Radiobutton(text='Black', variable=color, value='c', command=self.black)
         d = tk.Radiobutton(text='Own', variable=color, value='own', command=self.own)
-        
+
         a.grid(column=6, row=0)
         a.configure(bg=self.colorb, fg=self.colorf)
         b.grid(column=7, row=0)
@@ -117,7 +117,6 @@ class Shutdown:
         open(self.setting, 'w').write(self.picker())
         self.chcolor()
 
-    
     def picker(self):
         (rgb, hx) = colorchooser.askcolor()
         return hx
@@ -135,7 +134,7 @@ class Shutdown:
                 messagebox.showinfo(message=f'Ваш пк будет выключен через {min} min')
         except ValueError:
             pass
-    
+
     def plus(self):
         if self.i == 0:
             root.geometry("500x80")
