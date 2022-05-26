@@ -109,11 +109,11 @@ class Shutdown:
     def own(self):
         moot = Tk()
         moot.geometry("+400+300")
-        ttk.Button(moot, text='Background', command=self.bgPicker).grid(column=0, row=0)
+        ttk.Button(moot, text='Background', command=self.bpicker).grid(column=0, row=0)
         ttk.Button(moot, text='Font', command=self.picker).grid(column=1, row=0)
         self.chcolor()
 
-    def bgPicker(self):
+    def bpicker(self):
         open(self.setting, 'w').write(self.picker())
         self.chcolor()
 
