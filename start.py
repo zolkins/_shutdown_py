@@ -20,7 +20,9 @@ class Shutdown:
 
     def __init__(self, root):
         # main-frame
-        root.title("Shutdown v105")
+        ico = path0("ico.png")
+        root.iconphoto(True, tk.PhotoImage(file=ico))
+        root.title("Shutdown version a1")
         root.geometry("300x80+600+300")
         root.resizable(FALSE, FALSE)
         self.setting = path0("setting.txt")
@@ -60,7 +62,7 @@ class Shutdown:
         # line
         l = ttk.Label(text="Через сколько минут выключить?", background=self.colorb, padding=5, foreground=self.colorf)
         l.grid(column=0, row=0)
-        ttk.Label(text=f"{ossr}", background=self.colorb).grid(column=0, row=1)
+        ttk.Label(text="", background=self.colorb).grid(column=0, row=1)
 
         # button
         ttk.Button(text="Запланировать!", command=self.down).grid(column=0, row=2)
@@ -97,7 +99,6 @@ class Shutdown:
         self.colorb = 'white'
         self.colorf = 'black'
         self.chcolor()
-
 
     def black(self):
         open(self.setting, 'w').write('black')
@@ -143,9 +144,8 @@ class Shutdown:
             root.geometry("300x80")
             self.i = 0
 
-open(path0("setting.txt")).close
+
+open(path0("setting.txt")).close()
 root = Tk()
-ico = path0("ico.png")
-root.iconphoto(True, tk.PhotoImage(file=ico))
 Shutdown(root)
 root.mainloop()
