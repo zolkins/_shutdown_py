@@ -3,9 +3,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+output/
 # C extensions
 *.so
+*.ini
 2.py
 # Distribution / packaging
 .Python
@@ -129,3 +130,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 /2.py
+/output/
